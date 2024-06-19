@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import type { NextPage } from "next";
 
 import avatarPic from "../public/me.png";
@@ -42,7 +42,10 @@ export const Home: NextPage = () => {
               className="rounded-md"
               src={avatarPic}
               alt="Cartoon depiction of me"
-            />
+              style={{
+                maxWidth: "100%",
+                height: "auto"
+              }} />
           </div>
         </div>
       </main>
