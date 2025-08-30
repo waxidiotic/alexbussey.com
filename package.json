@@ -12,7 +12,7 @@
     "@babel/core": "^7.28.0",
     "@headlessui/react": "^2.2.7",
     "eslint-plugin-import": "^2.32.0",
-    "next": "15.4.6",
+    "next": "15.4.7",
     "next-themes": "^0.3.0",
     "react": "19.1.1",
     "react-dom": "19.1.1",
