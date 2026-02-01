@@ -9,22 +9,22 @@ import {
 export function Footer() {
   return (
     <footer className="flex justify-center mt-40 space-x-4 text-sm text-accent">
-      <Link href="https://github.com/waxidiotic" passHref>
+      <Link href="https://github.com/waxidiotic">
 
         <FaGithubSquare className="cursor-pointer h-7 w-7 hover:text-primary dark:hover:text-dark" />
 
       </Link>
-      <Link href="https://twitter.com/alexbussey" passHref>
+      <Link href="https://twitter.com/alexbussey">
 
         <FaTwitterSquare className="cursor-pointer h-7 w-7 hover:text-primary dark:hover:text-dark" />
 
       </Link>
-      <Link href="https://linkedin.com/in/alexbussey" passHref>
+      <Link href="https://linkedin.com/in/alexbussey">
 
         <FaLinkedin className="cursor-pointer h-7 w-7 hover:text-primary dark:hover:text-dark" />
 
       </Link>
-      <Link href="https://dev.to/waxidiotic" passHref>
+      <Link href="https://dev.to/waxidiotic">
 
         <FaDev className="cursor-pointer h-7 w-7 hover:text-primary dark:hover:text-dark" />
 
