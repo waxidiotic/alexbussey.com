@@ -1,119 +1,275 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-import {
-  Route as RouteIcon,
-  Server,
-  Shield,
-  Sparkles,
-  Waves,
-  Zap,
-} from "lucide-react";
+import { Globe, Mail, MapPin, Phone } from "lucide-react";
 
 export const Route = createFileRoute("/")({ component: App });
 
 function App() {
-  const features = [
-    {
-      icon: <Zap className="w-12 h-12 text-cyan-400" />,
-      title: "Powerful Server Functions",
-      description:
-        "Write server-side code that seamlessly integrates with your client components. Type-safe, secure, and simple.",
-    },
-    {
-      icon: <Server className="w-12 h-12 text-cyan-400" />,
-      title: "Flexible Server Side Rendering",
-      description:
-        "Full-document SSR, streaming, and progressive enhancement out of the box. Control exactly what renders where.",
-    },
-    {
-      icon: <RouteIcon className="w-12 h-12 text-cyan-400" />,
-      title: "API Routes",
-      description:
-        "Build type-safe API endpoints alongside your application. No separate backend needed.",
-    },
-    {
-      icon: <Shield className="w-12 h-12 text-cyan-400" />,
-      title: "Strongly Typed Everything",
-      description:
-        "End-to-end type safety from server to client. Catch errors before they reach production.",
-    },
-    {
-      icon: <Waves className="w-12 h-12 text-cyan-400" />,
-      title: "Full Streaming Support",
-      description:
-        "Stream data from server to client progressively. Perfect for AI applications and real-time updates.",
-    },
-    {
-      icon: <Sparkles className="w-12 h-12 text-cyan-400" />,
-      title: "Next Generation Ready",
-      description:
-        "Built from the ground up for modern web applications. Deploy anywhere JavaScript runs.",
-    },
-  ];
-
   return (
-    <div className="min-h-screen bg-linear-to-b from-slate-900 via-slate-800 to-slate-900">
-      <section className="relative py-20 px-6 text-center overflow-hidden">
-        <div className="absolute inset-0 bg-linear-to-r from-cyan-500/10 via-blue-500/10 to-purple-500/10"></div>
-        <div className="relative max-w-5xl mx-auto">
-          <div className="flex items-center justify-center gap-6 mb-6">
-            <img
-              src="/tanstack-circle-logo.png"
-              alt="TanStack Logo"
-              className="w-24 h-24 md:w-32 md:h-32"
-            />
-            <h1 className="text-6xl md:text-7xl font-black text-white tracking-[-0.08em]">
-              <span className="text-gray-300">TANSTACK</span>{" "}
-              <span className="bg-linear-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-                START
-              </span>
+    <div className="bg-white w-full h-full p-8 md:p-12 relative">
+      {/* Content */}
+      <div className="relative z-10">
+        {/* Header */}
+        <div className="flex justify-between items-start mb-8">
+          <div>
+            <h1 className="text-5xl font-bold tracking-tight text-gray-900 mb-1">
+              ALEX
+              <br />
+              BUSSEY
             </h1>
-          </div>
-          <p className="text-2xl md:text-3xl text-gray-300 mb-4 font-light">
-            The framework for next generation AI applications
-          </p>
-          <p className="text-lg text-gray-400 max-w-3xl mx-auto mb-8">
-            Full-stack framework powered by TanStack Router for React and Solid.
-            Build modern applications with server functions, streaming, and type
-            safety.
-          </p>
-          <div className="flex flex-col items-center gap-4">
-            <a
-              href="https://tanstack.com/start"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-8 py-3 bg-cyan-500 hover:bg-cyan-600 text-white font-semibold rounded-lg transition-colors shadow-lg shadow-cyan-500/50"
-            >
-              Documentation
-            </a>
-            <p className="text-gray-400 text-sm mt-2">
-              Begin your TanStack Start journey by editing{" "}
-              <code className="px-2 py-1 bg-slate-700 rounded text-cyan-400">
-                /src/routes/index.tsx
-              </code>
+            <p className="text-sm text-gray-600 uppercase tracking-wider">
+              Front-end Software Engineer
             </p>
           </div>
-        </div>
-      </section>
 
-      <section className="py-16 px-6 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {features.map((feature) => (
-            <div
-              key={feature.title}
-              className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-xl p-6 hover:border-cyan-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/10"
-            >
-              <div className="mb-4">{feature.icon}</div>
-              <h3 className="text-xl font-semibold text-white mb-3">
-                {feature.title}
+          <div className="text-right space-y-2 text-sm">
+            <div className="flex items-center justify-end gap-2">
+              <Phone className="w-4 h-4 text-gray-600" />
+              <span className="text-gray-700"> (732) 735-9019</span>
+            </div>
+            <div className="flex items-center justify-end gap-2">
+              <Mail className="w-4 h-4 text-gray-600" />
+              <span className="text-gray-700">awbussey83@gmail.com</span>
+            </div>
+            <div className="flex items-center justify-end gap-2">
+              <Globe className="w-4 h-4 text-gray-600" />
+              <span className="text-gray-700">www.alexbussey.com</span>
+            </div>
+            <div className="flex items-center justify-end gap-2">
+              <MapPin className="w-4 h-4 text-gray-600" />
+              <span className="text-gray-700">Philadelphia, Pennsylvania</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="border-t border-gray-300 my-6" />
+
+        {/* About Me */}
+        <section className="mb-8">
+          <h2 className="text-lg font-bold uppercase tracking-wider text-gray-900 mb-4">
+            About Me
+          </h2>
+          <p className="text-sm text-gray-700 leading-relaxed">
+            My name is Alex Bussey and I have been working with web technologies
+            for about 30 years. I have a passion for creating innovative and
+            user-friendly web applications that solve real-world problems. I am
+            always eager to learn new technologies and stay up-to-date with the
+            latest trends in the industry.
+          </p>
+        </section>
+
+        <div className="border-t border-gray-300 my-6" />
+
+        {/* Experience */}
+        <section className="mb-8">
+          <h2 className="text-lg font-bold uppercase tracking-wider text-gray-900 mb-4">
+            Experience
+          </h2>
+
+          <div className="space-y-6">
+            <div className="flex gap-8">
+              <div className="text-sm text-gray-700 whitespace-nowrap">
+                2023 - Present
+              </div>
+              <div className="flex-1">
+                <h3 className="font-bold text-gray-900 uppercase text-sm mb-1">
+                  Software Engineer
+                </h3>
+                <p className="text-sm text-gray-700 mb-2">PagerDuty - Remote</p>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  Contributed to the Jeli product for six months
+                  post-acquisition by PagerDuty, ensuring seamless integration.
+                  Collaborated with a team to migrate legacy frontends from
+                  Elixir and Backbone to React and TypeScript. Actively
+                  participated in enhancing the internal design system and
+                  component library to improve user experience.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex gap-12">
+              <div className="text-sm text-gray-700 whitespace-nowrap">
+                2022 - 2023
+              </div>
+              <div className="flex-1">
+                <h3 className="font-bold text-gray-900 uppercase text-sm mb-1">
+                  Software Engineer
+                </h3>
+                <p className="text-sm text-gray-700 mb-2">Jeli - Remote</p>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  Contributed to the frontend development of Jeli's product,
+                  enhancing user experience and functionality. Played a key role
+                  in modernizing and standardizing the technology stack used
+                  across the company. Collaborated closely with a small team of
+                  around 20 employees, fostering a strong team dynamic in a
+                  startup environment.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex gap-24">
+              <div className="text-sm text-gray-700 whitespace-nowrap">
+                2022
+              </div>
+              <div className="flex-1">
+                <h3 className="font-bold text-gray-900 uppercase text-sm mb-1">
+                  Senior Software Engineer
+                </h3>
+                <p className="text-sm text-gray-700 mb-2">
+                  CommonBond - Remote
+                </p>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  Spearheaded the integration of a new authentication flow
+                  across various applications, enhancing user security and
+                  experience. Collaborated on the rebranding of the marketing
+                  site, aligning it with the company's vision and improving user
+                  engagement. Utilized frontend technologies to deliver
+                  high-quality, responsive designs that meet user needs and
+                  business objectives.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex gap-12">
+              <div className="text-sm text-gray-700 whitespace-nowrap">
+                2015 - 2021
+              </div>
+              <div className="flex-1">
+                <h3 className="font-bold text-gray-900 uppercase text-sm mb-1">
+                  Software Engineer
+                </h3>
+                <p className="text-sm text-gray-700 mb-2">
+                  JW Player - New York, NY
+                </p>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  Started as a member of the support team but quickly
+                  transitioned to a software engineer role, where I worked in
+                  several different areas. These include working on the
+                  JavaScript-based video player, advertising plugins, platform
+                  interfaces and being part of a small team tasked with
+                  migrating the whole user-facing application from Angular to
+                  React.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div className="border-t border-gray-300 my-6" />
+
+        {/* Education and Expertise */}
+        <div className="grid md:grid-cols-2 gap-8 mb-8">
+          <section>
+            <h2 className="text-lg font-bold uppercase tracking-wider text-gray-900 mb-4">
+              Education
+            </h2>
+            <div className="space-y-4">
+              <div>
+                <div className="text-sm text-gray-700 mb-2">2011 - 2013</div>
+                <h3 className="font-bold text-gray-900 uppercase text-sm mb-1">
+                  Information Sciences & Technology
+                </h3>
+                <p className="text-sm text-gray-700">
+                  Pennsylvania State University - State College, PA
+                </p>
+              </div>
+              <div>
+                <div className="text-sm text-gray-700 mb-2">2008 - 2011</div>
+                <h3 className="font-bold text-gray-900 uppercase text-sm mb-1">
+                  Associates of Arts - Information Technology
+                </h3>
+                <p className="text-sm text-gray-700">
+                  University of Phoenix - Phoenix, AZ
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h2 className="text-lg font-bold uppercase tracking-wider text-gray-900 mb-4">
+              Expertise
+            </h2>
+            <div className="space-y-3">
+              <div>
+                <h3 className="font-bold text-gray-900 uppercase text-sm mb-1">
+                  Extremely Proficient
+                </h3>
+                <p className="text-sm text-gray-700">
+                  React, TypeScript, CSS, Next.js
+                </p>
+              </div>
+              <div>
+                <h3 className="font-bold text-gray-900 uppercase text-sm mb-1">
+                  Proficient
+                </h3>
+                <p className="text-sm text-gray-700">
+                  Component Frameworks, APIs, GraphQL
+                </p>
+              </div>
+              <div>
+                <h3 className="font-bold text-gray-900 uppercase text-sm mb-1">
+                  Eager to Learn
+                </h3>
+                <p className="text-sm text-gray-700">
+                  Tanstack Start, Web Animation
+                </p>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        {/*<div className="border-t border-gray-300 my-6" />*/}
+
+        {/* Achievement and Reference */}
+        {/*<div className="grid md:grid-cols-2 gap-8">
+          <section>
+            <h2 className="text-lg font-bold uppercase tracking-wider text-gray-900 mb-4">
+              Achievement
+            </h2>
+            <div>
+              <div className="text-sm text-gray-700 mb-2">2015 - 2016</div>
+              <h3 className="font-bold text-gray-900 uppercase text-sm mb-1">
+                Logo Design Awards
               </h3>
-              <p className="text-gray-400 leading-relaxed">
-                {feature.description}
+              <p className="text-sm text-gray-700 mb-2">
+                International Graphic Design Awards - USA
+              </p>
+              <p className="text-sm text-gray-700 leading-relaxed">
+                Lorem ipsum dolor sit amet, cons sectetur the adipiscing elit,
+                Duis avi eum irure dolor.
               </p>
             </div>
-          ))}
-        </div>
-      </section>
+          </section>
+
+          <section>
+            <h2 className="text-lg font-bold uppercase tracking-wider text-gray-900 mb-4">
+              Reference
+            </h2>
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <h3 className="font-bold text-gray-900 text-sm mb-1">
+                  MICHAEL DEEMER
+                </h3>
+                <p className="text-xs text-gray-700 mb-2">CEO Director</p>
+                <p className="text-xs text-gray-700 mb-1">P: 555-4545-5599</p>
+                <p className="text-xs text-gray-700">
+                  E: michaeldeemer@gmail.com
+                </p>
+              </div>
+              <div>
+                <h3 className="font-bold text-gray-900 text-sm mb-1">
+                  PAUL ANDERSON
+                </h3>
+                <p className="text-xs text-gray-700 mb-2">Account Manager</p>
+                <p className="text-xs text-gray-700 mb-1">P: 7889-4545-5599</p>
+                <p className="text-xs text-gray-700">
+                  E: paulanderson@gmail.com
+                </p>
+              </div>
+            </div>
+          </section>
+        </div>*/}
+      </div>
     </div>
   );
 }
