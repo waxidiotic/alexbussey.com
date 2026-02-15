@@ -11,7 +11,7 @@ bun --bun run dev
 
 # Building For Production
 
-To build this application for production:
+
 
 ```bash
 bun --bun run build
