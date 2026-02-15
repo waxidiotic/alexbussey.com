@@ -1,0 +1,74 @@
+{
+  // File watcher exclusions
+  "file_scan_exclusions": ["**/**/routeTree.gen.ts"],
+
+  // Format on save using Biome for supported languages
+  "format_on_save": "on",
+  "formatter": {
+    "language_server": {
+      "name": "biome"
+    }
+  },
+
+  // Language-specific formatters
+  "languages": {
+    "JavaScript": {
+      "formatter": {
+        "language_server": {
+          "name": "biome"
+        }
+      },
+      "code_actions_on_format": {
+				"source.fixAll.biome": true,
+				"source.organizeImports.biome": true
+			}
+    },
+    "TypeScript": {
+      "formatter": {
+        "language_server": {
+          "name": "biome"
+        }
+      },
+      "code_actions_on_format": {
+				"source.fixAll.biome": true,
+				"source.organizeImports.biome": true
+			}
+    },
+    "TSX": {
+      "formatter": {
+        "language_server": {
+          "name": "biome"
+        }
+      },
+      "code_actions_on_format": {
+				"source.fixAll.biome": true,
+				"source.organizeImports.biome": true
+			}
+    },
+    "JSON": {
+      "formatter": {
+        "language_server": {
+          "name": "biome"
+        }
+      }
+    },
+    "CSS": {
+      "language_servers": ["tailwindcss-intellisense-css"],
+      "formatter": {
+        "language_server": {
+          "name": "biome"
+        }
+      },
+      "code_actions_on_format": {
+				"source.fixAll.biome": true,
+				"source.organizeImports.biome": true
+			}
+    }
+  },
+  "lsp": { "biome": { "settings": { "require_config_file": true } } },
+
+  // Code actions on save (organize imports via Biome)
+  "code_actions_on_format": {
+    "source.organizeImports": true
+  }
+}
