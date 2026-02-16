@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev --port 3000",
-    "build": "bun run build:vite && bun run build:pdf",
+    "build": "bunx playwright install --with-deps chromium && bun run build:vite && bun run build:pdf",
     "build:vite": "vite build",
     "build:pdf": "bun run preview:bg && sleep 3 && bun run scripts/generate-pdf.ts && bun run preview:stop",
     "preview": "vite preview",
