@@ -48,10 +48,20 @@ The site will be available at [http://localhost:3000](http://localhost:3000).
 
 ### Building for Production
 
-Build the site and generate the PDF resume:
+Build the site for deployment:
 
 ```bash
 bun run build
+```
+
+This builds the Vite application for production.
+
+#### Building with PDF Generation (Local Only)
+
+To regenerate the PDF resume locally (after updating resume content):
+
+```bash
+bun run build:local
 ```
 
 This command will:
@@ -60,7 +70,9 @@ This command will:
 3. Generate a PDF of the resume using Playwright
 4. Stop the preview server
 
-The PDF will be saved to `public/alex-bussey-resume.pdf`.
+The PDF will be saved to `public/alex-bussey-resume.pdf` and should be committed to git.
+
+**Note**: PDF generation requires Playwright's browser binaries and system dependencies, so it's designed to run locally. The generated PDF is committed to the repository and deployed as a static asset.
 
 ### Preview Production Build
 
@@ -86,7 +98,8 @@ alexbussey.com/
 ## Scripts
 
 - `bun dev` - Start development server on port 3000
-- `bun run build` - Build for production and generate PDF
+- `bun run build` - Build for production (Vercel/deployment)
+- `bun run build:local` - Build for production and generate PDF (local only)
 - `bun run build:vite` - Build Vite application only
 - `bun run build:pdf` - Generate PDF only
 - `bun run preview` - Preview production build
