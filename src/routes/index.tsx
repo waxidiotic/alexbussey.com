@@ -15,13 +15,11 @@ export const Route = createFileRoute("/")({
 function App() {
   return (
     <div className="bg-white w-full h-full p-8 md:p-12 relative">
-      {/* Content */}
       <div className="relative z-10">
-        {/* Header */}
         <div className="flex justify-between items-start mb-8">
           <div>
             <h1 className="text-5xl font-bold tracking-tight text-gray-900 mb-1">
-              ALEX
+              ALEX<span className="text-gray-300">ANDER</span>
               <br />
               BUSSEY
             </h1>
@@ -29,13 +27,11 @@ function App() {
               Front-end Software Engineer
             </p>
           </div>
-
           <ContactMethodSection />
         </div>
 
         <Separator />
 
-        {/* About Me */}
         <section className="mb-8">
           <h2 className="text-lg font-bold uppercase tracking-wider text-gray-900 mb-4">
             About Me
@@ -55,10 +51,8 @@ function App() {
 
         <Separator />
 
-        {/* Education and Expertise */}
         <div className="grid md:grid-cols-2 gap-8 mb-8">
           <EducationSection />
-
           <ExpertiseSection />
         </div>
       </div>

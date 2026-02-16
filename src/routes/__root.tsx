@@ -1,10 +1,10 @@
-import { useRef, useState } from "react";
-
 import { TanStackDevtools } from "@tanstack/react-devtools";
 import { createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
 
 import { Download } from "lucide-react";
+
+import { usePerspective } from "@/hooks";
 
 import appCss from "../styles.css?url";
 
@@ -49,41 +49,15 @@ export const Route = createRootRoute({
 });
 
 function RootDocument({ children }: { children: React.ReactNode }) {
-  const resumeRef = useRef<HTMLDivElement>(null);
-  const [tilt, setTilt] = useState({ rotateX: 0, rotateY: 0 });
-  const [isHovering, setIsHovering] = useState(false);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!resumeRef.current) return;
-
-    const rect = resumeRef.current.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-
-    const rotateX = ((y - centerY) / centerY) * -5; // Max 5 degrees
-    const rotateY = ((x - centerX) / centerX) * 5; // Max 5 degrees
-
-    setTilt({ rotateX, rotateY });
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovering(false);
-    setTilt({ rotateX: 0, rotateY: 0 });
-  };
-
-  const handleMouseEnter = () => {
-    setIsHovering(true);
-  };
-
-  const handleDownloadPDF = () => {
-    const link = document.createElement("a");
-    link.href = "/alex-bussey-resume.pdf";
-    link.download = "alex-bussey-resume.pdf";
-    link.click();
-  };
+  const {
+    resumeRef,
+    handleDownloadPDF,
+    handleMouseEnter,
+    handleMouseLeave,
+    handleMouseMove,
+    isHovering,
+    tilt,
+  } = usePerspective();
 
   return (
     <html lang="en">

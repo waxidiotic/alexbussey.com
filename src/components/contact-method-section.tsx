@@ -3,12 +3,7 @@ import { Globe, Mail, MapPin, Phone } from "lucide-react";
 
 import { GitHubLogo } from "./icons/github-logo";
 
-type ContactChannel =
-  | "phone"
-  | "email"
-  | "website"
-  | "github_username"
-  | "location";
+type ContactChannel = "phone" | "email" | "website" | "github" | "location";
 
 type ContactMethods = Record<
   ContactChannel,
@@ -28,8 +23,8 @@ const contactMethods: ContactMethods = {
     value: "https://alexbussey.com",
     icon: Globe,
   },
-  github_username: {
-    value: "waxidiotic",
+  github: {
+    value: "https://github.com/waxidiotic",
     icon: GitHubLogo,
   },
   location: {
