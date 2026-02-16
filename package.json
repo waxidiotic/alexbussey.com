@@ -5,7 +5,12 @@
   "scripts": {
     "dev": "vite dev --port 3000",
     "build": "vite build",
+    "build:local": "bun run build:vite && bun run build:pdf",
+    "build:vite": "vite build",
+    "build:pdf": "bun run preview:bg && sleep 3 && bun run scripts/generate-pdf.ts && bun run preview:stop",
     "preview": "vite preview",
+    "preview:bg": "vite preview --port 3000 > /dev/null 2>&1 &",
+    "preview:stop": "lsof -ti:3000 | xargs kill -9 2>/dev/null || true",
     "test": "vitest run",
     "format": "biome format",
     "lint": "biome lint",
@@ -36,6 +41,7 @@
     "@types/react-dom": "^19.2.0",
     "@vitejs/plugin-react": "^5.0.4",
     "jsdom": "^28.1.0",
+    "playwright": "^1.58.2",
     "typescript": "^5.7.2",
     "vite": "^7.1.7",
     "vitest": "^4.0.18"
