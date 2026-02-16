@@ -79,7 +79,10 @@ function RootDocument({ children }: { children: React.ReactNode }) {
   };
 
   const handleDownloadPDF = () => {
-    // Implement PDF download logic here
+    const link = document.createElement("a");
+    link.href = "/alex-bussey-resume.pdf";
+    link.download = "alex-bussey-resume.pdf";
+    link.click();
   };
 
   return (
@@ -87,8 +90,8 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       <head>
         <HeadContent />
       </head>
-      <body className="min-h-screen bg-linear-to-br from-gray-200 via-gray-300 to-gray-400">
-        <div className="fixed top-6 right-6 z-10">
+      <body className="min-h-screen bg-linear-to-br from-gray-200 via-gray-300 to-gray-400 print:bg-white print:m-0 print:p-0">
+        <div className="fixed top-6 right-6 z-10 print:hidden">
           <button
             type="button"
             onClick={handleDownloadPDF}
@@ -99,7 +102,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
           </button>
         </div>
         <div
-          className="container mx-auto py-8 md:py-12 px-4 md:px-8"
+          className="container mx-auto py-8 md:py-12 px-4 md:px-8 print:p-0"
           style={{ perspective: "1000px" }}
         >
           <main
@@ -107,7 +110,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
             onMouseEnter={handleMouseEnter}
-            className="w-full max-w-4xl mx-auto bg-white shadow-2xl md:shadow-[0_20px_60px_rgba(0,0,0,0.3)]"
+            className="w-full max-w-4xl mx-auto bg-white shadow-2xl md:shadow-[0_20px_60px_rgba(0,0,0,0.3)] print:shadow-none print:max-w-full print:m-0"
             style={{
               transform: isHovering
                 ? `rotateX(${tilt.rotateX}deg) rotateY(${tilt.rotateY}deg) scale(1.01)`
