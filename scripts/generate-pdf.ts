@@ -103,37 +103,50 @@ async function generatePDF() {
         (section as HTMLElement).style.pageBreakInside = 'auto'; // Allow sections to break
       });
 
-      // Add "Continued on next page" indicator at bottom of first page
+      // Add page break control for Experience section
       const experienceSection = Array.from(document.querySelectorAll('section')).find(
         section => section.querySelector('h2')?.textContent?.includes('Experience')
       );
 
       if (experienceSection) {
-        // Find the last experience item on the page that will break
+        // Find the CommonBond experience item (second job, index 1)
         const experienceItems = experienceSection.querySelectorAll('.space-y-6 > div');
 
-        // Add continuation text after the third experience item (CommonBond)
-        if (experienceItems.length >= 3) {
-          const continuationDiv = document.createElement('div');
-          continuationDiv.className = 'page-continuation';
-          continuationDiv.style.textAlign = 'center';
-          continuationDiv.style.fontSize = '0.75rem';
-          continuationDiv.style.color = '#6b7280';
-          continuationDiv.style.fontStyle = 'italic';
-          continuationDiv.style.marginTop = '1rem';
-          continuationDiv.style.pageBreakAfter = 'avoid';
-          continuationDiv.textContent = 'Continued on next page...';
+        if (experienceItems.length >= 2) {
+          const commonBondItem = experienceItems[1];
 
-          // Insert after the third item (CommonBond - 2022)
-          experienceItems[2].after(continuationDiv);
+          // Find the bullet list within CommonBond
+          const bulletList = commonBondItem.querySelector('ul');
 
-          // Add page break after continuation text
-          continuationDiv.style.pageBreakAfter = 'always';
-          continuationDiv.style.breakAfter = 'page';
+          if (bulletList) {
+            const bullets = bulletList.querySelectorAll('li');
 
-          // Add top padding to page 2 content
-          if (experienceItems[3]) {
-            (experienceItems[3] as HTMLElement).style.paddingTop = '2rem';
+            // Break after the first bullet (Authentication Architecture)
+            // This puts "Technical Discovery" on page 2
+            if (bullets.length >= 1) {
+              // Add continuation indicator after first bullet
+              const continuationDiv = document.createElement('div');
+              continuationDiv.className = 'page-continuation';
+              continuationDiv.style.textAlign = 'center';
+              continuationDiv.style.fontSize = '0.75rem';
+              continuationDiv.style.color = '#6b7280';
+              continuationDiv.style.fontStyle = 'italic';
+              continuationDiv.style.marginTop = '1rem';
+              continuationDiv.style.paddingBottom = '0.5in';
+              continuationDiv.textContent = 'Continued on next page...';
+
+              // Insert after the first bullet
+              bullets[0].after(continuationDiv);
+
+              // Force page break after the continuation text
+              continuationDiv.style.pageBreakAfter = 'always';
+              continuationDiv.style.breakAfter = 'page';
+
+              // Add top padding to the second bullet on page 2
+              if (bullets[1]) {
+                (bullets[1] as HTMLElement).style.paddingTop = '3rem';
+              }
+            }
           }
         }
       }
@@ -148,7 +161,7 @@ async function generatePDF() {
       format: 'Letter',
       printBackground: true,
       margin: {
-        top: '0',
+        top: '20',
         right: '0',
         bottom: '0',
         left: '0',
