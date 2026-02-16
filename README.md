@@ -119,6 +119,17 @@ The PDF is automatically generated during the build process using Playwright. Th
 
 To modify PDF generation behavior, edit `scripts/generate-pdf.ts`.
 
+### Automated PDF Update Checks
+
+A GitHub Action automatically verifies that the PDF is updated when resume content changes:
+
+- **What it does**: Checks if `src/routes/index.tsx` was modified in a PR
+- **Enforcement**: If the resume changed but the PDF wasn't updated, the CI check fails
+- **Auto-comment**: Posts instructions on the PR to run `bun run build:local`
+- **Purpose**: Ensures the PDF always stays in sync with the resume content
+
+This prevents accidentally deploying resume changes without the corresponding PDF update.
+
 ## License
 
 MIT License - feel free to use this as inspiration for your own portfolio or take the PDF generation code for your projects!
