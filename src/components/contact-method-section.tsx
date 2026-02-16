@@ -7,7 +7,7 @@ type ContactChannel = "phone" | "email" | "website" | "github" | "location";
 
 type ContactMethods = Record<
   ContactChannel,
-  { value: string; icon: LucideIcon | React.ComponentType }
+  { value: string | React.ReactNode; icon: LucideIcon | React.ComponentType }
 >;
 
 const contactMethods: ContactMethods = {
@@ -24,7 +24,16 @@ const contactMethods: ContactMethods = {
     icon: Globe,
   },
   github: {
-    value: "https://github.com/waxidiotic",
+    value: (
+      <a
+        href="https://github.com/waxidiotic"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="hover:underline"
+      >
+        waxidiotic
+      </a>
+    ),
     icon: GitHubLogo,
   },
   location: {

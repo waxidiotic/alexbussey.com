@@ -132,8 +132,8 @@ const Experience = ({
     startDate === endDate ? startDate : `${startDate} - ${endDate}`;
 
   return (
-    <div className="flex gap-24">
-      <div className="text-sm text-gray-700 whitespace-nowrap">
+    <div className="flex">
+      <div className="text-sm text-gray-700 whitespace-nowrap w-37.5">
         {dateString}
       </div>
       <div className="flex-1">

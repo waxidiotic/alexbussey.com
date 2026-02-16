@@ -15,8 +15,8 @@ export const usePerspective = () => {
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
 
-    const rotateX = ((y - centerY) / centerY) * -5; // Max 5 degrees
-    const rotateY = ((x - centerX) / centerX) * 5; // Max 5 degrees
+    const rotateX = ((y - centerY) / centerY) * -1; // Max 1 degree
+    const rotateY = ((x - centerX) / centerX) * 1; // Max 1 degree
 
     setTilt({ rotateX, rotateY });
   };
