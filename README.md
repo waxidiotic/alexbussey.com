@@ -113,11 +113,36 @@ alexbussey.com/
 The PDF is automatically generated during the build process using Playwright. The script:
 
 - Launches a headless Chromium browser
-- Navigates to the preview server
+- Navigates to the preview server (runs from `.output/public/` after build)
 - Applies print-specific styling adjustments
 - Generates a Letter-sized PDF with high-quality rendering
 
 To modify PDF generation behavior, edit `scripts/generate-pdf.ts`.
+
+### Adjusting Page Breaks
+
+If resume content changes and the PDF page breaks occur in awkward locations, you can manually adjust them in `scripts/generate-pdf.ts`:
+
+1. **Locate the page break logic** around line 105-150 in `generate-pdf.ts`
+2. **Current implementation**: Breaks within CommonBond's bullet list (after first bullet)
+   - Page 1: PagerDuty + CommonBond header + "Authentication Architecture" bullet
+   - Page 2: CommonBond "Technical Discovery" bullet + JW Player + Education/Expertise
+3. **To break between jobs instead of within bullets**:
+   ```typescript
+   // Find the job you want to break after
+   const commonBondItem = experienceItems[1]; // Index 1 = second job
+   
+   // Insert continuation div after entire job
+   continuationDiv.textContent = 'Continued on next page...';
+   experienceItems[1].after(continuationDiv);
+   ```
+4. **To break within a different job's bullets**:
+   - Change `experienceItems[1]` to the desired job index (0 = PagerDuty, 2 = JW Player)
+   - Adjust `bullets[0]` to break after a different bullet (0 = first, 1 = second, etc.)
+5. **Print safety**: The `paddingBottom: '0.5in'` on the continuation div ensures safe printing margins
+6. **Rebuild the PDF** with `bun run build:local`
+
+**Note**: The script uses zero-based indexing for both jobs and bullets.
 
 ### Automated PDF Update Checks
 

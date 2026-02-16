@@ -2,6 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import { Globe, Mail, MapPin, Phone } from "lucide-react";
 
+import { GitHubLogo } from "@/components/icons/github-logo";
+
 export const Route = createFileRoute("/")({
   component: App,
 });
@@ -27,7 +29,7 @@ function App() {
           <div className="text-right space-y-2 text-sm">
             <div className="flex items-center justify-end gap-2">
               <Phone className="w-4 h-4 text-gray-600" />
-              <span className="text-gray-700"> (732) 735-9019</span>
+              <span className="text-gray-700">(732) 735-9019</span>
             </div>
             <div className="flex items-center justify-end gap-2">
               <Mail className="w-4 h-4 text-gray-600" />
@@ -35,11 +37,17 @@ function App() {
             </div>
             <div className="flex items-center justify-end gap-2">
               <Globe className="w-4 h-4 text-gray-600" />
-              <span className="text-gray-700">www.alexbussey.com</span>
+              <span className="text-gray-700">alexbussey.com</span>
+            </div>
+            <div className="flex items-center justify-end gap-2">
+              <GitHubLogo />
+              <span className="text-gray-700">github.com/waxidiotic</span>
             </div>
             <div className="flex items-center justify-end gap-2">
               <MapPin className="w-4 h-4 text-gray-600" />
-              <span className="text-gray-700">Philadelphia, Pennsylvania</span>
+              <span className="text-gray-700">
+                Philadelphia, Pennsylvania (Open to Remote)
+              </span>
             </div>
           </div>
         </div>
@@ -52,11 +60,11 @@ function App() {
             About Me
           </h2>
           <p className="text-sm text-gray-700 leading-relaxed">
-            My name is Alex Bussey and I have been working with web technologies
-            for about 30 years. I have a passion for creating innovative and
-            user-friendly web applications that solve real-world problems. I am
-            always eager to learn new technologies and stay up-to-date with the
-            latest trends in the industry.
+            Front-End Engineer with over a decade of professional experience
+            building scalable media and incident response platforms. Expert in
+            React and TypeScript with a proven track record of leading
+            large-scale framework migrations and working with robust internal
+            design systems.
           </p>
         </section>
 
@@ -71,41 +79,62 @@ function App() {
           <div className="space-y-6">
             <div className="flex gap-8">
               <div className="text-sm text-gray-700 whitespace-nowrap">
-                2023 - Present
+                2021 - Present
               </div>
               <div className="flex-1">
                 <h3 className="font-bold text-gray-900 uppercase text-sm mb-1">
                   Software Engineer
                 </h3>
-                <p className="text-sm text-gray-700 mb-2">PagerDuty - Remote</p>
-                <p className="text-sm text-gray-700 leading-relaxed">
-                  Contributed to the Jeli product for six months
-                  post-acquisition by PagerDuty, ensuring seamless integration.
-                  Collaborated with a team to migrate legacy frontends from
-                  Elixir and Backbone to React and TypeScript. Actively
-                  participated in enhancing the internal design system and
-                  component library to improve user experience.
+                <p className="text-sm text-gray-700 mb-2">
+                  {" "}
+                  PagerDuty (via acquisition of Jeli) - Remote
                 </p>
-              </div>
-            </div>
-
-            <div className="flex gap-12">
-              <div className="text-sm text-gray-700 whitespace-nowrap">
-                2022 - 2023
-              </div>
-              <div className="flex-1">
-                <h3 className="font-bold text-gray-900 uppercase text-sm mb-1">
-                  Software Engineer
-                </h3>
-                <p className="text-sm text-gray-700 mb-2">Jeli - Remote</p>
-                <p className="text-sm text-gray-700 leading-relaxed">
-                  Contributed to the frontend development of Jeli's product,
-                  enhancing user experience and functionality. Played a key role
-                  in modernizing and standardizing the technology stack used
-                  across the company. Collaborated closely with a small team of
-                  around 20 employees, fostering a strong team dynamic in a
-                  startup environment.
-                </p>
+                <ul className="space-y-2">
+                  <li className="text-sm text-gray-700">
+                    <span className="font-semibold">
+                      Architectural Modernization:
+                    </span>{" "}
+                    Leading a large-scale initiative to migrate legacy Elixir
+                    and Backbone.js web applications to a modern
+                    React/TypeScript toolchain, improving developer ergonomics
+                    and application performance.
+                  </li>
+                  <li className="text-sm text-gray-700">
+                    <span className="font-semibold">
+                      Infrastructure Strategy:
+                    </span>{" "}
+                    Standardizing frontend patterns and build processes across
+                    legacy codebases to align with PagerDuty’s global
+                    infrastructure standards.
+                  </li>
+                  <li className="text-sm text-gray-700">
+                    <span className="font-semibold">
+                      Product Continuity (Jeli):
+                    </span>{" "}
+                    Managed the post-acquisition transition of the Jeli incident
+                    response platform, delivering core feature updates and
+                    ensuring service stability during the initial five-month
+                    integration phase.
+                  </li>
+                  <li className="text-sm text-gray-700">
+                    <span className="font-semibold">
+                      Cross-Functional Collaboration:
+                    </span>{" "}
+                    Partnered with product and backend teams to deconstruct
+                    monolithic Elixir views into modular React components
+                    without interrupting the critical incident response workflow
+                    for enterprise customers.
+                  </li>
+                  <li className="text-sm text-gray-700">
+                    <span className="font-semibold">
+                      Incident Analysis and Response:
+                    </span>{" "}
+                    Engineered core user-facing features for Jeli’s incident
+                    response platform within a high-velocity frontend team,
+                    delivering critical tooling used by enterprise organizations
+                    to manage high-stakes service outages."
+                  </li>
+                </ul>
               </div>
             </div>
 
@@ -120,15 +149,28 @@ function App() {
                 <p className="text-sm text-gray-700 mb-2">
                   CommonBond - Remote
                 </p>
-                <p className="text-sm text-gray-700 leading-relaxed">
-                  Spearheaded the integration of a new authentication flow
-                  across various applications, enhancing user security and
-                  experience. Collaborated on the rebranding of the marketing
-                  site, aligning it with the company's vision and improving user
-                  engagement. Utilized frontend technologies to deliver
-                  high-quality, responsive designs that meet user needs and
-                  business objectives.
+                <p className="text-sm text-gray-700 mb-2 italic">
+                  Note: Role ended due to company-wide layoff and subsequent
+                  closure.
                 </p>
+                <ul className="space-y-2">
+                  <li className="text-sm text-gray-700">
+                    <span className="font-semibold">
+                      Authentication Architecture:
+                    </span>{" "}
+                    Led the initial phase of a security-critical project to
+                    migrate multiple micro-frontends to a unified authentication
+                    flow, delivering the technical specification and core
+                    integration patterns.
+                  </li>
+                  <li className="text-sm text-gray-700">
+                    <span className="font-semibold">Technical Discovery:</span>{" "}
+                    Conducted deep-dive audits of legacy frontend performance,
+                    identifying key bottlenecks and proposing a modernization
+                    roadmap that informed the engineering team’s strategic
+                    priorities.
+                  </li>
+                </ul>
               </div>
             </div>
 
@@ -143,15 +185,24 @@ function App() {
                 <p className="text-sm text-gray-700 mb-2">
                   JW Player - New York, NY
                 </p>
-                <p className="text-sm text-gray-700 leading-relaxed">
-                  Started as a member of the support team but quickly
-                  transitioned to a software engineer role, where I worked in
-                  several different areas. These include working on the
-                  JavaScript-based video player, advertising plugins, platform
-                  interfaces and being part of a small team tasked with
-                  migrating the whole user-facing application from Angular to
-                  React.
-                </p>
+                <ul className="space-y-2">
+                  <li className="text-sm text-gray-700 leading-relaxed">
+                    <span className="font-semibold">Delivering Value:</span>{" "}
+                    Developed core features and advertising plugins for a
+                    JavaScript video player utilized by millions of end-users
+                    globally, ensuring cross-browser compatibility and
+                    low-latency playback.
+                  </li>
+                  <li className="text-sm text-gray-700 leading-relaxed">
+                    <span className="font-semibold">
+                      Modernizing the Stack:
+                    </span>{" "}
+                    Key contributor to a multi-year strategic initiative to
+                    migrate the primary customer dashboard from Angular to
+                    React, resulting in a more modular codebase and faster
+                    release cycles.
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
@@ -167,21 +218,19 @@ function App() {
             </h2>
             <div className="space-y-4">
               <div>
-                <div className="text-sm text-gray-700 mb-2">2011 - 2013</div>
                 <h3 className="font-bold text-gray-900 uppercase text-sm mb-1">
-                  Information Sciences & Technology
+                  Pennsylvania State University
                 </h3>
                 <p className="text-sm text-gray-700">
-                  Pennsylvania State University - State College, PA
+                  Information Sciences &amp; Technology
                 </p>
               </div>
               <div>
-                <div className="text-sm text-gray-700 mb-2">2008 - 2011</div>
                 <h3 className="font-bold text-gray-900 uppercase text-sm mb-1">
-                  Associates of Arts - Information Technology
+                  University of Phoenix
                 </h3>
                 <p className="text-sm text-gray-700">
-                  University of Phoenix - Phoenix, AZ
+                  Associates of Arts in Information Technology
                 </p>
               </div>
             </div>
@@ -194,83 +243,29 @@ function App() {
             <div className="space-y-3">
               <div>
                 <h3 className="font-bold text-gray-900 uppercase text-sm mb-1">
-                  Extremely Proficient
+                  Languages
                 </h3>
                 <p className="text-sm text-gray-700">
-                  React, TypeScript, CSS, Next.js
+                  TypeScript/JavaScript, CSS
                 </p>
               </div>
               <div>
                 <h3 className="font-bold text-gray-900 uppercase text-sm mb-1">
-                  Proficient
+                  Frameworks
                 </h3>
-                <p className="text-sm text-gray-700">
-                  Component Frameworks, APIs, GraphQL
-                </p>
+                <p className="text-sm text-gray-700">React, Next.js, Node.js</p>
               </div>
               <div>
                 <h3 className="font-bold text-gray-900 uppercase text-sm mb-1">
-                  Eager to Learn
+                  Tools/Testing
                 </h3>
                 <p className="text-sm text-gray-700">
-                  Tanstack Start, Web Animation
+                  Component Libraries, Vitest, GraphQL, Storybook, Cypress
                 </p>
               </div>
             </div>
           </section>
         </div>
-
-        {/*<div className="border-t border-gray-300 my-6" />*/}
-
-        {/* Achievement and Reference */}
-        {/*<div className="grid md:grid-cols-2 gap-8">
-          <section>
-            <h2 className="text-lg font-bold uppercase tracking-wider text-gray-900 mb-4">
-              Achievement
-            </h2>
-            <div>
-              <div className="text-sm text-gray-700 mb-2">2015 - 2016</div>
-              <h3 className="font-bold text-gray-900 uppercase text-sm mb-1">
-                Logo Design Awards
-              </h3>
-              <p className="text-sm text-gray-700 mb-2">
-                International Graphic Design Awards - USA
-              </p>
-              <p className="text-sm text-gray-700 leading-relaxed">
-                Lorem ipsum dolor sit amet, cons sectetur the adipiscing elit,
-                Duis avi eum irure dolor.
-              </p>
-            </div>
-          </section>
-
-          <section>
-            <h2 className="text-lg font-bold uppercase tracking-wider text-gray-900 mb-4">
-              Reference
-            </h2>
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <h3 className="font-bold text-gray-900 text-sm mb-1">
-                  MICHAEL DEEMER
-                </h3>
-                <p className="text-xs text-gray-700 mb-2">CEO Director</p>
-                <p className="text-xs text-gray-700 mb-1">P: 555-4545-5599</p>
-                <p className="text-xs text-gray-700">
-                  E: michaeldeemer@gmail.com
-                </p>
-              </div>
-              <div>
-                <h3 className="font-bold text-gray-900 text-sm mb-1">
-                  PAUL ANDERSON
-                </h3>
-                <p className="text-xs text-gray-700 mb-2">Account Manager</p>
-                <p className="text-xs text-gray-700 mb-1">P: 7889-4545-5599</p>
-                <p className="text-xs text-gray-700">
-                  E: paulanderson@gmail.com
-                </p>
-              </div>
-            </div>
-          </section>
-        </div>*/}
       </div>
     </div>
   );
