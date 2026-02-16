@@ -2,7 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import { Globe, Mail, MapPin, Phone } from "lucide-react";
 
-export const Route = createFileRoute("/")({ component: App });
+export const Route = createFileRoute("/")({
+  component: App,
+});
 
 function App() {
   return (
