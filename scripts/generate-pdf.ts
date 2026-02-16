@@ -144,7 +144,7 @@ async function generatePDF() {
 
               // Add top padding to the second bullet on page 2
               if (bullets[1]) {
-                (bullets[1] as HTMLElement).style.paddingTop = '1.5rem';
+                (bullets[1] as HTMLElement).style.paddingTop = '3rem';
               }
             }
           }
@@ -161,7 +161,7 @@ async function generatePDF() {
       format: 'Letter',
       printBackground: true,
       margin: {
-        top: '0',
+        top: '20',
         right: '0',
         bottom: '0',
         left: '0',
