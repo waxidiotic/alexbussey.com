@@ -1,0 +1,74 @@
+name: Check PDF Update
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'src/routes/index.tsx'
+      - 'public/alex-bussey-resume.pdf'
+
+jobs:
+  check-pdf:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      contents: read
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check if resume was modified
+        id: check-resume
+        run: |
+          # Check if index.tsx was modified in this PR
+          if git diff --name-only origin/${{ github.base_ref }}...${{ github.sha }} | grep -q "src/routes/index.tsx"; then
+            echo "resume_modified=true" >> $GITHUB_OUTPUT
+            echo "Resume file (index.tsx) was modified"
+          else
+            echo "resume_modified=false" >> $GITHUB_OUTPUT
+            echo "Resume file (index.tsx) was not modified"
+          fi
+
+      - name: Check if PDF was updated
+        id: check-pdf
+        if: steps.check-resume.outputs.resume_modified == 'true'
+        run: |
+          # Check if PDF was modified in this PR
+          if git diff --name-only origin/${{ github.base_ref }}...${{ github.sha }} | grep -q "public/alex-bussey-resume.pdf"; then
+            echo "pdf_updated=true" >> $GITHUB_OUTPUT
+            echo "PDF was updated"
+          else
+            echo "pdf_updated=false" >> $GITHUB_OUTPUT
+            echo "PDF was NOT updated"
+          fi
+
+      - name: Comment on PR if PDF not updated
+        if: steps.check-resume.outputs.resume_modified == 'true' && steps.check-pdf.outputs.pdf_updated == 'false'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '⚠️ **PDF Update Required**\n\nThe resume content (`src/routes/index.tsx`) has been modified, but the PDF file (`public/alex-bussey-resume.pdf`) has not been updated.\n\nPlease run the following command locally to regenerate the PDF:\n```bash\nbun run build:local\n```\n\nThen commit the updated PDF file.'
+            })
+
+      - name: Fail if PDF not updated
+        if: steps.check-resume.outputs.resume_modified == 'true' && steps.check-pdf.outputs.pdf_updated == 'false'
+        run: |
+          echo "❌ Resume was modified but PDF was not updated!"
+          echo "Please run 'bun run build:local' to regenerate the PDF and commit it."
+          exit 1
+
+      - name: Success message
+        if: steps.check-resume.outputs.resume_modified == 'false' || steps.check-pdf.outputs.pdf_updated == 'true'
+        run: |
+          if [ "${{ steps.check-resume.outputs.resume_modified }}" == "true" ]; then
+            echo "✅ Resume was modified and PDF was updated!"
+          else
+            echo "✅ Resume was not modified, no PDF update needed."
+          fi
