@@ -17,7 +17,7 @@ const experiences: Experience[] = [
     title: "Software Engineer",
     location: "Remote",
     startDate: "2021",
-    endDate: "Present",
+    endDate: "2026",
     bullets: [
       {
         title: "Architectual Modernization",
