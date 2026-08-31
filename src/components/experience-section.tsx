@@ -16,8 +16,13 @@ const experiences: Experience[] = [
     company: "PagerDuty (via acquisition of Jeli)",
     title: "Software Engineer",
     location: "Remote",
+<<<<<<< Updated upstream
     startDate: "2021",
     endDate: "Present",
+=======
+    startDate: "2022",
+    endDate: "2026",
+>>>>>>> Stashed changes
     bullets: [
       {
         title: "Architectual Modernization",
@@ -59,8 +64,8 @@ const experiences: Experience[] = [
     company: "CommonBond",
     title: "Senior Software Engineer",
     location: "Remote",
-    startDate: "2021",
-    endDate: "2021",
+    startDate: "2022",
+    endDate: "2022",
     note: "Role ended due to company-wide layoff and subsequent closure.",
     bullets: [
       {
@@ -83,7 +88,7 @@ const experiences: Experience[] = [
     title: "Software Engineer",
     location: "New York, NY (Remote after March 2020)",
     startDate: "2015",
-    endDate: "2020",
+    endDate: "2021",
     bullets: [
       {
         title: "Delivering Value",
