@@ -16,13 +16,8 @@ const experiences: Experience[] = [
     company: "PagerDuty (via acquisition of Jeli)",
     title: "Software Engineer",
     location: "Remote",
-<<<<<<< Updated upstream
-    startDate: "2021",
-    endDate: "Present",
-=======
     startDate: "2022",
     endDate: "2026",
->>>>>>> Stashed changes
     bullets: [
       {
         title: "Architectual Modernization",
