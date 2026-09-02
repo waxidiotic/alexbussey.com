@@ -8,15 +8,28 @@ interface ExpertiseItem {
 const expertiseItems: ExpertiseItem[] = [
   {
     title: "Languages",
-    items: ["TypeScript/JavaScript", "CSS"],
+    items: ["TypeScript", "JavaScript"],
   },
   {
     title: "Frameworks",
-    items: ["React", "Next.js", "Node.js", "Tailwind CSS"],
+    items: ["React", "Next.js", "Node.js", "Tailwind CSS", "Tanstack Start"],
   },
   {
     title: "Tools/Testing",
-    items: ["Component Libraries", "Vitest", "GraphQL", "Storybook", "Cypress"],
+    items: [
+      "Component Libraries",
+      "Vitest",
+      "GraphQL",
+      "Storybook",
+      "Cypress",
+      "RTK Query",
+      "Tanstack",
+      "Playwright",
+    ],
+  },
+  {
+    title: "AI",
+    items: ["Claude", "GitHub Copilot"],
   },
 ];
 

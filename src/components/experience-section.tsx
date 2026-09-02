@@ -16,9 +16,15 @@ const experiences: Experience[] = [
     company: "PagerDuty (via acquisition of Jeli)",
     title: "Software Engineer",
     location: "Remote",
-    startDate: "2022",
-    endDate: "2026",
+    startDate: "Jul 2022",
+    endDate: "Aug 2026",
     bullets: [
+      {
+        title: "Adoption of AI Tooling",
+        description: `Part of the team responsible for driving usage of AI tooling
+        throughout the organization. Created workflows and commands to automate several
+        parts of the development process, including scaffolding and pull request maintenance.`,
+      },
       {
         title: "Architectual Modernization",
         description: `Leading a large-scale initiative to migrate legacy Elixir
@@ -59,8 +65,8 @@ const experiences: Experience[] = [
     company: "CommonBond",
     title: "Senior Software Engineer",
     location: "Remote",
-    startDate: "2022",
-    endDate: "2022",
+    startDate: "Jan 2022",
+    endDate: "May 2022",
     note: "Role ended due to company-wide layoff and subsequent closure.",
     bullets: [
       {
@@ -82,8 +88,8 @@ const experiences: Experience[] = [
     company: "JW Player",
     title: "Software Engineer",
     location: "New York, NY (Remote after March 2020)",
-    startDate: "2015",
-    endDate: "2021",
+    startDate: "Aug 2015",
+    endDate: "Dec 2021",
     bullets: [
       {
         title: "Delivering Value",
