@@ -109,22 +109,22 @@ async function generatePDF() {
       );
 
       if (experienceSection) {
-        // Find the CommonBond experience item (second job, index 1)
+        // Find the PagerDuty (first job, index 0) and CommonBond (second job, index 1) items
         const experienceItems = experienceSection.querySelectorAll('.space-y-6 > div');
 
         if (experienceItems.length >= 2) {
+          const pagerDutyItem = experienceItems[0];
           const commonBondItem = experienceItems[1];
 
-          // Find the bullet list within CommonBond
-          const bulletList = commonBondItem.querySelector('ul');
+          // Find the bullet list within PagerDuty
+          const bulletList = pagerDutyItem.querySelector('ul');
 
           if (bulletList) {
             const bullets = bulletList.querySelectorAll('li');
+            const lastBullet = bullets[bullets.length - 1];
 
-            // Break after the first bullet (Authentication Architecture)
-            // This puts "Technical Discovery" on page 2
-            if (bullets.length >= 1) {
-              // Add continuation indicator after first bullet
+            if (lastBullet) {
+              // Add continuation indicator after the last PagerDuty bullet
               const continuationDiv = document.createElement('div');
               continuationDiv.className = 'page-continuation';
               continuationDiv.style.textAlign = 'center';
@@ -135,17 +135,15 @@ async function generatePDF() {
               continuationDiv.style.paddingBottom = '0.5in';
               continuationDiv.textContent = 'Continued on next page...';
 
-              // Insert after the first bullet
-              bullets[0].after(continuationDiv);
+              // Insert after the last bullet, still inside the PagerDuty item
+              lastBullet.after(continuationDiv);
 
-              // Force page break after the continuation text
+              // Force page break after the continuation text, before CommonBond
               continuationDiv.style.pageBreakAfter = 'always';
               continuationDiv.style.breakAfter = 'page';
 
-              // Add top padding to the second bullet on page 2
-              if (bullets[1]) {
-                (bullets[1] as HTMLElement).style.paddingTop = '3rem';
-              }
+              // Add top padding to the CommonBond entry on page 2
+              (commonBondItem as HTMLElement).style.paddingTop = '3rem';
             }
           }
         }
